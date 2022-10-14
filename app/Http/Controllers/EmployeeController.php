@@ -8,17 +8,17 @@ use App\Repositories\EmployeeRepository;
 
 class EmployeeController extends Controller
 {
-    protected $employeerepository;
+    protected $employeeRepository;
 
-    public function __construct(EmployeeRepository $employeerepository)
+    public function __construct(EmployeeRepository $employeeRepository)
     {
-        $this->employeerepository = $employeerepository;
+        $this->employeeRepository = $employeeRepository;
     }
 
     public function index()
     {
         $title = "Employees Data";
-        $data = $this->employeerepository->getAll();
+        $data = $this->employeeRepository->getAll();
         return view('employee.employee', compact('data', 'title'));
     }
 
@@ -30,26 +30,26 @@ class EmployeeController extends Controller
 
     public function store(StoreEmployeeRequest $request)
     {
-        $this->employeerepository->create($request->all());
-        return redirect()->route('employee')->with('success', 'Insert Success');;
+        $this->employeeRepository->create($request->all());
+        return redirect()->route('employee.index')->with('success', 'Insert Success');;
     }
 
     public function edit($id)
     {
         $title = "Update Data";
-        $data = $this->employeerepository->getId($id);
+        $data = $this->employeeRepository->getId($id);
         return view('employee.edit', compact('data', 'title'));
     }
 
     public function update(UpdateEmployeeRequest $request, $id)
     {
-        $this->employeerepository->update($id, $request->all());
-        return redirect()->route('employee')->with('success', 'Update Success');
+        $this->employeeRepository->update($id, $request->all());
+        return redirect()->route('employee.index')->with('success', 'Update Success');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
-        $this->employeerepository->delete($id);
-        return redirect()->route('employee')->with('success', 'Delete Success');
+        $this->employeeRepository->delete($id);
+        return redirect()->route('employee.index')->with('success', 'Delete Success');
     }
 }

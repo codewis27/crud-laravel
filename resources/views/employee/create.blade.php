@@ -7,7 +7,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/store" method="POST" enctype="multipart/form-data" id="quickForm">
+              <form action="{{ route('employee.store') }}" method="POST" enctype="multipart/form-data" id="quickForm">
                  @csrf
                 <div class="card-body">
                   <div class="form-group">
@@ -37,7 +37,7 @@
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Insert</button>
-                   <a href="/"> <button type="button" class="btn btn-danger">Cancel</button></a>
+                   <a href="{{ route('employee.index') }}"> <button type="button" class="btn btn-danger">Cancel</button></a>
                 </div>
               </form>
             </div>

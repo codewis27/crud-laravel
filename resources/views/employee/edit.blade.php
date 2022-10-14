@@ -7,7 +7,8 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/update/{{$data->id}}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('employee.update', ['employee' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+                @method('PUT')
                  @csrf
                 <div class="card-body">
                   <div class="form-group">
@@ -40,7 +41,7 @@
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Update</button>
-                   <a href="/"> <button type="button" class="btn btn-danger">Cancel</button></a>
+                   <a href="{{ route('employee.index') }}"> <button type="button" class="btn btn-danger">Cancel</button></a>
                 </div>
               </form>
             </div>
