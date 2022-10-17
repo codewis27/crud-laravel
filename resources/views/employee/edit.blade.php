@@ -40,7 +40,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Update</button>
+                  <button type="submit" class="btn btn-success">Memperbarui</button>
                    <a href="{{ route('employee.index') }}"> <button type="button" class="btn btn-danger">Cancel</button></a>
                 </div>
               </form>
